@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .form-control{
+    width: 300px;
+    margin-left: 15%;
+
+  }
+  .reg{
+    margin-top: 20%;
+    margin-left: 34%;
+    margin-right: 33%;
+    margin-bottom: 20%;
+    background-color: black;
+    opacity: 100%;
+    height: 500px;
+
+  }
+  .btn{
+    margin-left: 40%;
+    margin-top: 5px;
+  }
+  p {
+    color: white;
+    margin-left: 15%;
+  }
+  </style>
+</head>
+<body background="index.jpeg">
+  <div class="reg">
+    <h2 style="margin-left: 36%; color: white; padding-top:10%">Sign up</h2>
+    <div class="form-group">
+      <p>Enter name:</p>
+      <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+    </div>
+    <div class="form-group">
+      <p calss="form-group">Enter e-mail:</p>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <p>Enter password:</p>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="form-group">
+      <p>Confirm password:</p>
+      <input type="password" class="form-control" id="pwd2" placeholder="Confirm password" name="pwd2">
+    </div>
+    <button type="submit" class="btn btn-default">Register</button>
+  </div>  
+</body>
+</html>
