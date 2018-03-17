@@ -2,7 +2,7 @@ import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
@@ -76,6 +76,43 @@ def add_entry():
     
     
     
+# Register Form Class
+class RegisterForm(Form):
+    name = StringField('Name', [validators.Length(min=1, max=50)])
+    username = StringField('Username', [validators.Length(min=4, max=25)])
+    email = StringField('Email', [validators.Length(min=6, max=50)])
+    password = PasswordField('Password', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Passwords do not match')
+    ])
+    confirm = PasswordField('Confirm Password')
+    
+
+#Register function
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm(request.form)
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        email = form.email.data
+        username = form.username.data
+        password = form.password.data
+
+        # Create cursor
+
+
+        # Execute query
+ 
+        # Commit to DB
+        
+        # Close connection
+ 
+        flash('You are now registered and can log in', 'success')
+
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
+	
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
