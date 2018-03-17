@@ -30,43 +30,29 @@
     }
   </style>
   <script>
-  function UploadPic() {
-    var Pic = document.getElementById("canvas").toDataURL("image/png");
-    Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
-
-    $.ajax({
-        type: 'POST',
-        url: 'Save_Picture.aspx/UploadPic',
-        data: '{ "imageData" : "' + Pic + '" }',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        success: function (msg) {
-            alert("Done, Picture Uploaded.");
-        }
-    });
-}
 </script>
 </head>
-<body>
+<body background="static/index2.jpeg">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Pigiminator</a>
-    </div>
+      <div class="navbar-header">
+       <div><img src="static/PZ.png" alt="Smiley face" width="50" height="50"></div> 
+   </div>
+       <a class="navbar-brand" href="#">Pigiminator</a>
     <ul class="nav navbar-nav">
-      <li><a href="#">Home</a></li>
-      <li class="active"><a href="#">Pigiminator</a></li>
-      <li><a href="#">Contacts</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Pigiminator</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-phone-alt"></span> Contacts</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
-</nav>
+</nav>  
   <div class="firstlane">
     <canvas id="canvas"></canvas>
-    <button type="submit" class="btn btn-default" onClick="javascript:UploadPic();return false;">Upload</button>
+    <button type="submit" class="btn btn-default">Upload</button>
   </div>
   <div id="txt" class="firstlane">
     <textarea id="textarea">The text will display here.</textarea>
