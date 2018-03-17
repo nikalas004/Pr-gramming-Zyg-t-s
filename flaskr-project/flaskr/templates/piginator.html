@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    #canvas{
+      width: 100%;
+      height: 265px;
+      border: solid;
+    }
+    #textarea{
+      width: 100%;
+      height: 265px;
+      resize: none;
+      border: solid;
+    }
+    .firstlane{
+      display: inline-block;
+      margin: 3%;
+      width: 43%;
+      height: 300px;
+    }
+    .btn{
+      height: 35px;
+    }
+  </style>
+  <script>
+  function UploadPic() {
+    var Pic = document.getElementById("canvas").toDataURL("image/png");
+    Pic = Pic.replace(/^data:image\/(png|jpg);base64,/, "")
+
+    $.ajax({
+        type: 'POST',
+        url: 'Save_Picture.aspx/UploadPic',
+        data: '{ "imageData" : "' + Pic + '" }',
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function (msg) {
+            alert("Done, Picture Uploaded.");
+        }
+    });
+}
+</script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pigiminator</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Pigiminator</a></li>
+      <li><a href="#">Contacts</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+  <div class="firstlane">
+    <canvas id="canvas"></canvas>
+    <button type="submit" class="btn btn-default" onClick="javascript:UploadPic();return false;">Upload</button>
+  </div>
+  <div id="txt" class="firstlane">
+    <textarea id="textarea">The text will display here.</textarea>
+    <button type="submit" class="btn btn-default">Convert</button>
+  </div>
+</body>
+</html>
