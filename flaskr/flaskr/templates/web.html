@@ -2,36 +2,79 @@
 <html>
 <head>
 <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+  	
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	
+ 	
+    <script src="jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bitter.css">
+    <script src="bootstrap.min.js"></script>
+    
+    <link href="bitter.css" rel="stylesheet" type="text/css">
+    <link rel= "stylesheet" type= "text/css" href= "form.css">
+    
+    
+
+
+
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<!--<a class="navbar-brand" href="#">WebSiteName</a>-->
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Page 1</a></li>
-				<li><a href="#">Page 2</a></li>
-				<li><a href="#">Page 3</a></li>
-			</ul>
-		</div>
-	</nav>
-	  
 	<div class="container">
-	  	<h3>Basic Navbar Example</h3>
-		<p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+    	<h1 onclick="this.innerHTML='name'">other name</h1>
+      	<nav role="navigation" class="navbar navbar-inverse">
+		<div class="navbar-header">
+	  		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" target="#myNavbar">
+	    		<span class="sr-only">Toggle navigation</span>
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+	    		<span class="icon-bar"></span>
+	 		 </button>
+	  		<a href="#" class="navbar-brand" style="color:red">logo</a>
+		</div> <!-- close -->
+	
+		<div id="navbarCollapse" class="collapse navbar-collapse">
+	  		<ul class="nav navbar-nav">
+				<li><a data-toggle="tab" href="#home">Home</a></li>
+				<li><a data-toggle="tab" href="#contacts">Contacts</a></li>
+			</ul>	
+			
+		  
+		  	<ul class="nav navbar-nav navbar-right" id="myNavbar">
+				<li class="dropdown">
+			  		<a data-toggle="dropdown" class="dropdown-toggle" href="#">Account<b class="caret"></b></a>
+			  		<ul role="menu" class="dropdown-menu">
+						<li><a href='  /login'>Log in</a></li>
+						<li><a data-toggle="tab" href="#down2">Log out</a></li>
+			  		</ul>
+				</li>
+		  	</ul>
+		</div>
+		</nav>  
 	</div>
 
-	<form>
-		<h1>Here is the truth!!!</h1>
+    <div class="tab-content">
+
+    	<div id="home" class="tab-pane fade in active">
+			<h3>HOME</h3>
+		</div>
+		<div id="contacts" class="tab-pane fade">
+		  	<h3>Here</h3>
+		
+		</div>
+
+		<div id="down2" class="tab-pane fade">
+			<h3>fff</h3>
 	
-		<input type="button" value="Put Your Text Here" onclick="window.location.href='http://127.0.0.1:5000/login'" />
-	</form> 
+		</div>
+		  
+    
+	
+    </div>
+<footer>&copy; 2018 Antonio, Milen, Valeri, Nikolay, Mihail</footer>
 </body>
 </html>
