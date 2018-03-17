@@ -4,6 +4,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 
+conn=sqlite3.connect('database.db')
+
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
 
@@ -99,14 +101,14 @@ def register():
         password = form.password.data
 
         # Create cursor
-
+        cur=conn.cursor()
 
         # Execute query
- 
+        cur.execute('INSERT INTO user(Name, user, e-mail, Pass) VALUES (%s, %s, %s, %s)', (name, username, email, password))
         # Commit to DB
-        
+        conn.commit()
         # Close connection
- 
+        conn.close()
         flash('You are now registered and can log in', 'success')
 
         return redirect(url_for('login'))
