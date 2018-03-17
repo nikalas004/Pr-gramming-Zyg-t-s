@@ -88,7 +88,7 @@ class RegisterForm(Form):
     confirm = PasswordField('Confirm Password')
     
 
-
+#Register function
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form)
@@ -111,8 +111,8 @@ def register():
 
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
+	
 
-    
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
