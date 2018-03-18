@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 	<title>Home</title>
+ 	<title>Bootstrap Example</title>
  	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,39 +11,40 @@
     .row{
       display: inline-block;
       width: 30%;
-      margin-top: 20px;
-      margin-right: 20px;
-      margin-bottom: 20px;
-      margin-left: 20px;
+      margin: 20px;
+
     }
     .par{
       width: 200px;
-      margin-left: 7%;
     }
     .bor{
       width: 230px;
     }
   </style>
 </head>
-<body background="static/index2.jpeg">
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<body>
+    <nav class="navbar navbar-inverse" style="margin:0px;">
+    <div class="container-fluid">
       <div class="navbar-header">
-       <div><img src="static/PZ.png" alt="Smiley face" width="50" height="50"></div> 
-   </div>
-       <a class="navbar-brand" href="#">Pigiminator</a>
-    <ul class="nav navbar-nav">
-      <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-      <li><a href="/piginator"><span class="glyphicon glyphicon-fire"></span> Pigiminator</a></li>
-      <li><a href="/contacts"><span class="glyphicon glyphicon-phone-alt"></span> Contacts</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>  
-	<div class="container" style="width:100%; margin:0px">
+        <a class="navbar-brand" href="#">Pigiminator</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active" ><a href="{{url_for('Home')}}">Home</a></li>
+        <li><a href="{{url_for('Piginator')}}">Pigiminator</a></li>
+        <li><a href="{{url_for('Contacts')}}">Contacts</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('Register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{{url_for('Login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>  
+	
+    {% extends "layout.html" %}
+    {% block content %}
+      <div class="Home">
+        <h1>A Python product</h1>
+    	<div class="container" style="width:100%; margin:0px">
  		<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin:0px padding:0px">
     		<ol class="carousel-indicators">
      			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -52,24 +53,24 @@
     		</ol>
     		<div class="carousel-inner">
 				<div class="item active">
-        			<img src="static/index.png" alt="Photo" style="width:100%; height:600px">
+        			<img src="index.png" alt="Photo" style="width:100%; height:600px">
         			<div class="carousel-caption">
           				<h3>Photo</h3>
           				<p>You give us a photo</p>
         			</div>
       			</div>
       			<div class="item">
-        			<img src="static/index2.png" alt="Text" style="width:100%; height:600px">
+        			<img src="index2.png" alt="Text" style="width:100%; height:600px">
         			<div class="carousel-caption">
           				<h3>Text</h3>
           				<p>And we return you a text</p>
         			</div>
       			</div>
     			<div class="item">
-        			<img src="static/homepic3.jpeg" alt="Use it" style="width:100%; height:600px">
+        			<img src="ny.jpg" alt="New York" style="width:100%; height:600px">
         			<div class="carousel-caption">
-          				<h3>Pigiminator</h3>
-          				<p>Use our web app - Pigiminator</p>
+          				<h3>New York</h3>
+          				<p>We love the Big Apple!</p>
         			</div>
      			</div>
   			</div>
@@ -91,8 +92,7 @@
           <p class="par">This is web app which <br>
             can be used for convertin <br> 
             of a text in phto to text <br>
-            in txt format on your <br>
-            computer</p>
+            in txt format on your computer</p>
           </div>
         </div>
       </div>
@@ -101,12 +101,11 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail bor">
           <div class="caption par">
-          <h3 class="par">How to use it?</h3>
-          <p class="par">At first, upload a photo <br>
-            then click on the convert <br> 
-             button and you will see <br>
-            the text and be able to<br>
-            use it</p>
+          <h3 class="par">What is this?</h3>
+          <p class="par">This is web app which <br>
+            can be used for convertin <br> 
+            of a text in phto to text <br>
+            in txt format on your computer</p>
           </div>
         </div>
       </div>
@@ -115,14 +114,16 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail bor">
           <div class="caption par">
-          <h3 class="par">Where you can use it?</h3>
-          <p class="par">Actually anywhere for<br>
-            example at school or at <br> 
-            university or even at<br>
-            work</p>
+          <h3 class="par">What is this?</h3>
+          <p class="par">This is web app which <br>
+            can be used for convertin <br> 
+            of a text in phto to text <br>
+            in txt format on your computer</p>
           </div>
         </div>
       </div>
-    </div>
+    </div>    
+      </div>
+    {% endblock %}
 </body>
 </html>

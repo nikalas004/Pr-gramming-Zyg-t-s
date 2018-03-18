@@ -20,7 +20,16 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 @app.route("/")
 def hello():
-    return render_template('web.html')
+    return render_template('Home.html')
+
+@app.route("/contacts")
+def contacts():
+    return render_template('Contacts.html')
+
+@app.route("/piginator")
+def piginator():
+    return render_template('Piginator.html')
+
 
 def connect_db():
     """Connects to the specific database."""
@@ -63,7 +72,7 @@ def show_entries():
     db = get_db()
     cur = db.execute('select title, text from entries order by id desc')
     entries = cur.fetchall()
-    return render_template('show_entries.html', entries=entries)
+    return render_template('show_entries', entries=entries)
 
 @app.route('/add', methods=['POST'])
 def add_entry():
@@ -112,7 +121,7 @@ def register():
         flash('You are now registered and can log in', 'success')
 
         return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+    return render_template('Register.html', form=form)
 	
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -127,7 +136,7 @@ def login():
             session['logged_in'] = True
             flash('You were logged in')
             return redirect(url_for('show_entries'))
-    return render_template('login.html', error=error)
+    return render_template('Login.html', error=error)
     
     
 @app.route('/logout')
@@ -135,6 +144,3 @@ def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
     return redirect(url_for('show_entries'))
-    
-    
-
