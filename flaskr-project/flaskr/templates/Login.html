@@ -37,7 +37,7 @@
 <body background="static/index.jpeg">
   <div class="reg">
     <h2 style="margin-left: 39%; color: white; padding-top:10%">Log in</h2>
-    <div class="form-group">
+    <div class="form-group" action="{{ url_for('login') }}" method=post>
       <p calss="form-group">Enter e-mail:</p>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
     </div>
